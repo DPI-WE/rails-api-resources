@@ -1,23 +1,34 @@
-# Replace with lesson title
+# API Resources 🤖
 
-Add your content here!
+Here are some resources for building out an API:
 
-[Read up here for full instructions with examples for lesson writing.](https://learn.firstdraft.com/lessons/3-how-to-write-a-lesson)
+- [Jelani's guide to adding token-based authentication](https://gist.github.com/jelaniwoods/b637851dba743e3084f75f4d27daeee4).
+- [as_json](https://api.rubyonrails.org/classes/ActiveModel/Serializers/JSON.html#method-i-as_json) for simple endpoints.
+- [JBuilder README](https://github.com/rails/jbuilder#jbuilder) for more complicated endpoints.
+- [Graphiti](https://github.com/graphiti-api/graphiti) for flexible endpoints (e.g. for when you are offering API access to third parties).
+- [Hoppscotch](https://hoppscotch.io/), [Postman](https://www.postman.com/), or [cURL](https://en.wikipedia.org/wiki/CURL) for testing your API calls.
+- [Building Awesome Rails APIs](https://collectiveidea.com/blog/archives/2013/06/13/building-awesome-rails-apis-part-1).
 
-## Heading 1
+It's very common practice to namespace API only routes. Something like this:
 
-Use `##` second or greater level headings (HTML `<h2>` and greater).
-
-### Heading 1.1
-
-Reference images from the `assets/` folder like so:
-
+```ruby
+Rails.application.routes.draw do
+  namespace :api do
+    resources :things
+  end
+end
 ```
-![](assets/example-image.png)
-```
 
-You can use the path `/assets/my-image.png` or `assets/my-image.png`, both will render in your local markdown preview; and when you connect the repository with a Learn Lesson, the assets will upload to Cloudinary and the paths will automatically be converted to a hosted URL, e.g.:
+This way all our API only routes will start with `/api/` and API only controllers will be grouped together.
 
-```
-![](https://res.cloudinary.com/[CLOUD_NAME]/image/upload/[IMAGE_VERSION]/appdev-lessons/[REPO_NAME]/[BRANCH]/[IMAGE_NAME])
+```ruby
+Prefix Verb   URI Pattern                    Controller#Action
+    api_things GET    /api/things(.:format)          api/things#index
+               POST   /api/things(.:format)          api/things#create
+ new_api_thing GET    /api/things/new(.:format)      api/things#new
+edit_api_thing GET    /api/things/:id/edit(.:format) api/things#edit
+     api_thing GET    /api/things/:id(.:format)      api/things#show
+               PATCH  /api/things/:id(.:format)      api/things#update
+               PUT    /api/things/:id(.:format)      api/things#update
+           DELETE /api/things/:id(.:format)      api/things#destroy
 ```
