@@ -1,4 +1,4 @@
-# Building APIs with Rails 🤖
+# Building APIs 🤖
 
 ## Introduction to APIs
 APIs (Application Programming Interfaces) allow different software applications to communicate with each other. In the context of web development, APIs often refer to web services that send and receive data through the internet. Rails provides robust support for building APIs that can serve JSON, XML, or other formats of data to clients, including web browsers, mobile apps, and other servers.
