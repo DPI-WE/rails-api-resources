@@ -168,6 +168,66 @@ Here's an [example](https://petstore.swagger.io/). This interactive documentatio
 
 Integrating Swagger into your Rails project can be streamlined with gems like [rswag](https://github.com/rswag/rswag), which ties together your API documentation and your RSpec tests. This means that as your API evolves and your tests are updated, your API documentation automatically keeps pace, ensuring accuracy and consistency without additional effort. 
 
+## Quiz
+
+- What command do you use to create a new Rails application optimized for *only* API development?
+- `rails new my_api_app --api`
+  - Correct! The `--api` option generates a Rails application configured for API-only development.
+- `rails new my_api_app --api-only`
+  - Not quite. The correct option is --api.
+- `rails generate api my_api_app`
+  - Not quite. The correct command is rails new my_api_app --api.
+{: .choose_best #rails_api_command title="Creating a Rails API Application" points="1" answer="1" }
+
+- Why should you use namespaces in your Rails API routes?
+- To organize and group API-related controllers and routes logically.
+  - Correct! Namespacing helps in maintaining a clear structure for your API routes and controllers.
+- To make the application run faster.
+  - Not quite. Namespacing improves organization, not performance directly.
+- To avoid conflicts with HTML views.
+  - Not quite. Namespacing primarily helps with logical grouping and not directly with avoiding conflicts with views.
+{: .choose_best #namespace_routes title="Using Namespaces in Rails API Routes" points="1" answer="1" }
+
+- Which method in Rails controllers is used to render JSON responses?
+- `render json:`
+  - Correct! The render json: method is used to send JSON responses from Rails controllers.
+- `to_json`
+  - Not quite. `to_json` is used to convert Ruby objects to JSON, but not for rendering responses directly.
+- `respond_to json:`
+  - Not quite. respond_to is used to specify response formats, but render json: is used for rendering JSON specifically.
+{: .choose_best #render_json title="Rendering JSON in Rails Controllers" points="1" answer="1" }
+
+- What is the main purpose of creating a parent `ApiController` class in Rails?
+- To apply common configurations and behaviors specific to API controllers.
+  - Correct! `ApiController` allows you to centralize configurations and behaviors needed across multiple API controllers.
+- To replace `ApplicationController`.
+  - Not quite. `ApiController` is used for API controllers specifically, not to replace `ApplicationController`.
+- To handle all API requests directly.
+  - Not quite. `ApiController` serves as a base class for API controllers, but does not handle requests directly.
+{: .choose_best #api_controller_purpose title="Purpose of ApiController" points="1" answer="1" }
+
+- Which of the following are benefits of using `JBuilder` for JSON serialization in Rails? (Select all that apply)
+- Allows for flexible and customizable JSON responses.
+  - Correct! JBuilder provides a flexible way to build complex JSON responses.
+- Helps in creating HTML views.
+  - Not quite. JBuilder is specifically for creating JSON, not HTML.
+- Enables the inclusion of nested resources in JSON output.
+  - Correct! JBuilder can include nested resources in JSON responses, making it powerful for APIs.
+- Simplifies rendering of large datasets as JSON.
+  - Correct! JBuilder makes it easier to render complex data structures as JSON.
+{: .choose_all #jbuilder_benefits title="Benefits of Using JBuilder" points="3" answer="[1, 3, 4]" }
+
+- What are some tools you can use to manually test your API endpoints? (Select all that apply)
+- Hoppscotch
+  - Correct! Hoppscotch is a popular tool for manually testing API endpoints.
+- Postman
+  - Correct! Postman is widely used for API testing and development.
+- cURL
+  - Correct! cURL is a command-line tool for making HTTP requests and testing APIs.
+- RSpec
+  - Not quite. RSpec is used for automated testing, not manual testing.
+{: .choose_all #api_testing_tools title="Tools for Manually Testing APIs" points="3" answer="[1, 2, 3]" }
+
 ## Conclusion
 Building APIs with Rails is a powerful way to serve data to various clients in a structured and secure manner. By following Rails conventions, leveraging namespaces, and utilizing tools like JBuilder, MiniTest, and RSpec, you can efficiently create, document, and test your APIs. Remember to secure your API with appropriate authentication mechanisms and continuously test your endpoints for reliability and performance.
 
